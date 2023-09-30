@@ -1,0 +1,28 @@
+# quat was here!!!!!!
+
+/**/bin
+/**/build
+/**/.gradle
+/**/.classpath
+/**/.project
+/**/.settings
+/**/.metadata
+/**/download
+/**/.idea/
+/**/run
+
+# hmmmmm
+*.zip
+*.jar
+!/**/gradle-wrapper.jar
+!/sample/dep_testin/*.jar
+*.iml
+/**/work
+/**/work/*
+*.hprof
+*.class
+
+# Dammit krita
+*.png~
+*.kra~
+*autosave.kra

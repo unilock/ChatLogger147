@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "chatlogger147",
+    "name": "ChatLogger147",
+    "description": "Logs chat to a text file",
+    "version": "${version}",
+    "credits": "",
+    "logoFile": "/gfx/chatlogger147/logo.png",
+    "mcversion": "1.4.7",
+    "url": "https://github.com/unilock/ChatLogger147",
+    "updateUrl": "",
+    "authors": ["unilock"],
+    "parent": "",
+    "screenshots": [],
+    "dependencies": [
+      "mod_MinecraftForge"
+    ]
+  }
+]
