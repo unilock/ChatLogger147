@@ -8,7 +8,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import net.minecraftforge.common.Configuration;
 
-import java.io.File;
 import java.util.logging.Logger;
 
 @Mod(
@@ -29,7 +28,9 @@ public class ChatLogger147 {
 	public static CommonProxy proxy;
 
 	public static Configuration config;
-	public static File chatlog;
+	public static String avatarUrl;
+	public static String webhookId;
+	public static String webhookToken;
 
 	public ChatLogger147() {
 		LOGGER.setParent(FMLLog.getLogger());
@@ -40,7 +41,9 @@ public class ChatLogger147 {
 		config = new Configuration(e.getSuggestedConfigurationFile());
 		try {
 			config.load();
-			chatlog = new File(config.get("main", "chatlog", "chatlog.txt").value);
+			avatarUrl = config.get("webhook", "avatarURL", "https://minotar.net/helm/%username%/128.png").value;
+			webhookId = config.get("webhook", "id", "").value;
+			webhookToken = config.get("webhook", "token", "").value;
 		} finally {
 			config.save();
 		}

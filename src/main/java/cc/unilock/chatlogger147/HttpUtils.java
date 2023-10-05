@@ -6,11 +6,15 @@ import java.net.URL;
 
 public class HttpUtils {
     public static void postMessage(String username, String message) {
-        String content = ("{\"username\":\""+username+"\",\"content\":\""+message+"\"}");
+        String content = ("{"+
+            "\"avatar_url\":\""+ChatLogger147.avatarUrl.replace("%username%", username)+"\","+
+            "\"username\":\""+username+"\","+
+            "\"content\":\""+message+"\""+
+        "}");
 
         HttpURLConnection http = null;
         try {
-            URL url = new URL("https://discord.com/api/webhooks/" + Constants.WEBHOOK_ID + "/" + Constants.WEBHOOK_TOKEN);
+            URL url = new URL("https://discord.com/api/webhooks/" + ChatLogger147.webhookId + "/" + ChatLogger147.webhookToken);
             http = (HttpURLConnection) url.openConnection();
 
             http.setRequestMethod("POST");
