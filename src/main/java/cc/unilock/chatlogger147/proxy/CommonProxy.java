@@ -1,5 +1,7 @@
 package cc.unilock.chatlogger147.proxy;
 
 public interface CommonProxy {
-	void preinit();
+	void preInit();
+	void serverStarting();
+	void serverStopping();
 }

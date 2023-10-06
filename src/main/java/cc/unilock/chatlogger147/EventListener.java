@@ -1,5 +1,6 @@
 package cc.unilock.chatlogger147;
 
+import cc.unilock.chatlogger147.http.HttpUtils;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.ServerChatEvent;
 

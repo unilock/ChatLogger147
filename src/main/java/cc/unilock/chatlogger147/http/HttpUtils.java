@@ -1,4 +1,6 @@
-package cc.unilock.chatlogger147;
+package cc.unilock.chatlogger147.http;
+
+import cc.unilock.chatlogger147.ChatLogger147;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -6,14 +8,14 @@ import java.net.URL;
 
 public class HttpUtils {
     public static void postMessage(String username, String message) {
-        String content = ("{"+
-            "\"avatar_url\":\""+ChatLogger147.avatarUrl.replace("%username%", username)+"\","+
-            "\"username\":\""+username+"\","+
-            "\"content\":\""+message+"\""+
-        "}");
-
         HttpURLConnection http = null;
         try {
+            String content = ("{"+
+                "\"avatar_url\":\""+ChatLogger147.webhookAvatarUrl.replace("%username%", username)+"\","+
+                "\"username\":\""+username+"\","+
+                "\"content\":\""+message+"\""+
+            "}");
+
             URL url = new URL("https://discord.com/api/webhooks/" + ChatLogger147.webhookId + "/" + ChatLogger147.webhookToken);
             http = (HttpURLConnection) url.openConnection();
 
@@ -30,6 +32,11 @@ public class HttpUtils {
             os.write(content.getBytes());
             os.flush();
             os.close();
+
+            int code = http.getResponseCode();
+            if (code != HttpURLConnection.HTTP_NO_CONTENT) {
+                ChatLogger147.LOGGER.warning("Bad response code: " + code);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {

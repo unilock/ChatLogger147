@@ -1,10 +1,18 @@
 package cc.unilock.chatlogger147.proxy;
 
-import cc.unilock.chatlogger147.ChatLogger147;
-
 public class ClientProxy implements CommonProxy {
 	@Override
-	public void preinit() {
-		ChatLogger147.LOGGER.warning("ChatLogger147 will not run on the client.");
+	public void preInit() {
+		throw new RuntimeException("ChatLogger147 is not supported on the client!");
+	}
+
+	@Override
+	public void serverStarting() {
+		throw new RuntimeException("ChatLogger147 is not supported on the client!");
+	}
+
+	@Override
+	public void serverStopping() {
+		throw new RuntimeException("ChatLogger147 is not supported on the client!");
 	}
 }
